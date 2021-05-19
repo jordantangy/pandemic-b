@@ -19,7 +19,9 @@ Player& Scientist::discover_cure(Color city) {
         throw invalid_argument{"There is no research center in this city "};
     }
     counter = 1;
-    for(auto it = cards.begin(); it != cards.end(); it++){
+    auto begin = cards.begin();
+    auto end = cards.end();
+    for(auto it = begin; it != end; it++){
         if(counter == n) {
             break;
         }

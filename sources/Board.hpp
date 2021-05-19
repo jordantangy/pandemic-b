@@ -24,6 +24,6 @@ namespace pandemic {
             void add_curedCity(Color city);
             bool discovered(City city);
             void remove_cures();
-            friend std::ostream& operator<<(std::ostream& os, const Board& b);
+            friend ostream& operator<<(ostream& os, const Board& b);
     };
 }

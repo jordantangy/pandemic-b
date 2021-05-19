@@ -12,10 +12,12 @@ Player& Researcher::discover_cure(Color city){
         }
     }
     if(counter < CARDS_TO_THROW){
-        throw std::invalid_argument{"Not enough cards"};
+        throw invalid_argument{"Not enough cards"};
     }
     counter = 1;
-    for(auto it = cards.begin(); it != cards.end(); counter++){
+    auto begin = cards.begin();
+    auto end = cards.end();
+    for(auto it = begin; it != end; counter++){
         if(counter == CARDS_TO_THROW) {
             break;
         }

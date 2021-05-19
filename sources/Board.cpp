@@ -10,7 +10,7 @@ int& Board::operator[](City city) {
 
 bool Board::is_clean() {
     for(auto& pair: pandemic_level) {
-        if(pair.second > 0) {
+        if(pair.second != 0) {
             return false;
         }
     }
@@ -40,6 +40,6 @@ void Board::remove_cures() {
 }
 
 
-std::ostream& pandemic::operator<<(std::ostream& os, const Board& b) {
+ostream& pandemic::operator<<(std::ostream& os, const Board& b) {
     return os;
 }

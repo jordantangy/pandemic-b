@@ -19,6 +19,6 @@ Player& Virologist::treat(City city){
         board.pandemic_level[city] = 0;
         return *this;
     }
-    board[city]--;
+    board.pandemic_level[city]--;
     return *this;
 }

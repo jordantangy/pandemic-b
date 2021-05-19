@@ -79,7 +79,7 @@ bool Player::is_connected(const string& city1,const string& city2){
 Player& Player::take_card(City city){
     cards.insert(city);
     return *this;
-    }
+}
 
 void Player::check_medic(City actual,const std::string& role){
     if(role == "Medic"){
@@ -107,7 +107,7 @@ Player& Player::fly_direct(City city){
         actual = city;
     }
     else{
-         throw std::invalid_argument{"The player does not have this card"};
+         throw invalid_argument{"The player does not have this card"};
     }
     check_medic(actual,this->Role);
     return *this;
@@ -119,7 +119,7 @@ Player& Player::fly_charter(City city){
         actual = city;
     }
     else{
-        throw std::invalid_argument{"The player does not have this card"};
+        throw invalid_argument{"The player does not have this card"};
     }
     check_medic(actual,this->Role);
     return *this;
@@ -127,14 +127,14 @@ Player& Player::fly_charter(City city){
 
 Player& Player::fly_shuttle(City city){
     if(actual == city){
-        throw std::invalid_argument{"Can't traver to a city to itself"};
+        throw invalid_argument{"Can't traver to a city to itself"};
     }
     if(board.contains_researchCenter(actual) && board.contains_researchCenter(city)){
         actual = city;
         check_medic(actual,this->Role);
     }
     else{
-        throw std::invalid_argument{"No research center in both cities"};
+        throw invalid_argument{"No research center in both cities"};
     }
     return *this;
 }
@@ -145,7 +145,7 @@ Player& Player::build(){
         cards.erase(actual);
     }
     else{
-         throw std::invalid_argument{"Cant build research station! the player dont have a "};
+         throw invalid_argument{"Cant build research station! the player dont have a "};
     }
     return *this;
 }
@@ -160,7 +160,7 @@ Player& Player::discover_cure(Color city){
             }
         }
         if(counter < CARDS_TO_THROW ){
-            throw std::invalid_argument{"illegal action: you only have  "};
+            throw invalid_argument{"illegal action: you only have  "};
         }
         counter = 1;
         for(auto it = cards.begin(); it != cards.end(); it++){
@@ -179,20 +179,20 @@ Player& Player::discover_cure(Color city){
     }
 
     else{
-        throw std::invalid_argument{"error"};
+        throw invalid_argument{"error"};
     }
     return *this;
 }
 
 Player& Player::treat(City city){
     if (actual != city) {
-        throw std::invalid_argument{"You're not in the city"};
+        throw invalid_argument{"You're not in the city"};
     }
-    else if (board[city] == 0) {
-        throw std::invalid_argument{"The level is already at 0"};
+    else if (board.pandemic_level[city] == 0) {
+        throw invalid_argument{"The level is already at 0"};
     }
     else if (board.discovered(city)) {
-        board[city] = 0;
+        board.pandemic_level[city] = 0;
     }
     else {
         board.pandemic_level[city]--;

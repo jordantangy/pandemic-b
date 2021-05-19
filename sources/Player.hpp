@@ -13,12 +13,14 @@ namespace pandemic {
 
         protected:
             Board& board;
-            std::set<City> cards;
+            set<City> cards;
             City actual; 
-            std::string Role;
+            string Role;
+            
+
             
         public:
-            Player(Board& b, City city, std::string r = "Player"): board(b), actual(city), Role(r){}
+            Player(Board& b, City city, string r = "Player"): board(b), actual(city), Role(r){}
 
             Player& take_card(City city);
             Player& drive(City city);
