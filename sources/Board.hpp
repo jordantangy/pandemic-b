@@ -11,7 +11,6 @@ namespace pandemic {
 
     class Board {
         public:
-        static std::map<City, set<City>> connections;
         map<City, int> pandemic_level;
         set<Color> discovered_cures;
         vector<City> research_centers;

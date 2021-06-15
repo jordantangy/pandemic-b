@@ -36,7 +36,8 @@ namespace pandemic {
             string role(){
                 return Role;
             }
-            void check_medic(City actual,const std::string& role);
+            void check_medic(City actual,const string& role);
+           
     };
 
 }

@@ -3,7 +3,7 @@
 using namespace std;
 using namespace pandemic;
 
-
+//reinitialize disease cubes to 0
 Player& Medic::treat(City city) {
     if (actual != city) {
         throw invalid_argument{"This player is not in the right city"};

@@ -7,6 +7,7 @@ Player& Scientist::discover_cure(Color city) {
     int counter = 0;
     if(board.contains_researchCenter(actual)){
         for(auto& c : cards){
+            //check that the player has enough cards from the same color
             if(Player::getColor(c) == city) {
             counter++;
             }

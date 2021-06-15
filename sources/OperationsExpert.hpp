@@ -11,6 +11,7 @@ namespace pandemic{
         public:
             OperationsExpert(Board& b, City city): Player(b, city, "OperationsExpert") {}
             Player& build() override;
+            
     };
 
 }

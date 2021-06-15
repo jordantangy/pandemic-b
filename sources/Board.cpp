@@ -1,6 +1,7 @@
 #include "Board.hpp"
 #include "Player.hpp"
 
+
 using namespace std;
 using namespace pandemic;
 
@@ -40,6 +41,19 @@ void Board::remove_cures() {
 }
 
 
-ostream& pandemic::operator<<(std::ostream& os, const Board& b) {
-    return os;
+ostream& pandemic::operator<<(ostream& os,const Board& b){
+    os << "\n\tDisease level in each city: \n";
+        for(const auto& it : b.pandemic_level){
+                os << "\t\t" << strCities.at(it.first) << " --> " << it.second << endl;
+        }
+        os << "\n\tColor of Cures that were found 'till now: \n";
+        for(const auto& it2 : b.discovered_cures){
+                os << "\t\tColor of cure: " << stringOfColor.at(it2)<< endl;
+        }
+        os << "\n\tReaserch Stations that were built 'till now: \n";
+        for(const auto& it3 : b.research_centers){
+                os << "\t\tReaserch Station is in: " << strCities.at(it3) << ". " <<endl;
+        }
+        os << "\n---------------------------------------------------------" << "\n" <<endl;
+        return os; 
 }
